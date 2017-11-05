@@ -5,6 +5,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>To be continue</title>
+    <link rel="shortcut icon" href="common/image/icon.png" type="icon" />
+    <link rel="icon" href="common/image/icon.png" type="icon" />
 </head>
 <body>
 <h1 align="center">To be continue</h1>

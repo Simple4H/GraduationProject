@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="common/bootstrap-3.3.7-dist/css/buttons.css">
     <script src="common/bootstrap-3.3.7-dist/js/jquery-3.2.1.min.js"></script>
     <script src="common/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="common/image/icon.png" type="icon" />
+    <link rel="icon" href="common/image/icon.png" type="icon" />
     <script type="text/javascript">
         console.log('真的是不会做了，来人教我啊！');
     </script>

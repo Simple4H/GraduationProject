@@ -5,6 +5,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>login</title>
+    <link rel="shortcut icon" href="common/image/icon.png" type="icon" />
+    <link rel="icon" href="common/image/icon.png" type="icon" />
 </head>
 <body>
 
