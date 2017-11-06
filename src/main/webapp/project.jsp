@@ -465,7 +465,7 @@
 <footer class="container-fluid text-center">
     <a href="#project" title="To Top"> <img alt="to top" src="common/image/up_arrow.png"></a>
     <p>
-        发现有不足的地方，请联系作者<a href="http://wpa.qq.com/msgrd?v=3&amp;uin=673724357&amp;site=qq&amp;menu=yes"
+        发现有不足的地方，请联系我<a href="http://wpa.qq.com/msgrd?v=3&amp;uin=673724357&amp;site=qq&amp;menu=yes"
                          title="673724357@qq.com">S I M P L E</a>
     </p>
 </footer>

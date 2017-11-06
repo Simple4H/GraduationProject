@@ -14,7 +14,7 @@
     <!-- 增加平滑效果 -->
     <script>
         $(document).ready(function () {
-            $(".navbar a, footer a[href='#aboutus']").on('click', function (event) {
+            $(".navbar a, footer a[href='#page']").on('click', function (event) {
                 event.preventDefault();
                 var hash = this.hash;
                 $('html, body').animate({
@@ -83,7 +83,7 @@
     </style>
 </head>
 <body data-spy="scroll" data-target="#aboutus" data-offset="0">
-<div>
+<div id="page">
     <div class="jumbotron text-center">
         <h1><img width="75" height="75" alt="力行中智"
                  src="common/image/logo.png"></h1>
@@ -142,9 +142,11 @@
     </div>
 </div>
 <footer class="container-fluid text-center">
-    <a title="To Top"><img alt="to top" src="common/image/up_arrow.png"></a>
-    <p>发现有不足的地方，请联系作者<a href="http://wpa.qq.com/msgrd?v=3&uin=673724357&site=qq&menu=yes" title="673724357@qq.com">S I M
-        P L E</a></p>
+    <a href="#page" title="To Top"> <img alt="to top" src="common/image/up_arrow.png"></a>
+    <p>
+        发现有不足的地方，请联系我<a target="_blank" href="tencent://message/?uin=673724357&Site=www.cxm520hyq.com.cn&Menu=yes"><img
+            border="0" src="http://wpa.qq.com/pa?p=2::52" alt="S I M P L E" title="S I M P L E"/></a>
+    </p>
 </footer>
 </body>
 </html>

@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="common/bootstrap-3.3.7-dist/css/buttons.css">
     <script src="common/bootstrap-3.3.7-dist/js/jquery-3.2.1.min.js"></script>
     <script src="common/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-    <link rel="shortcut icon" href="common/image/icon.png" type="icon" />
-    <link rel="icon" href="common/image/icon.png" type="icon" />
+    <link rel="shortcut icon" href="common/image/icon.png" type="icon"/>
+    <link rel="icon" href="common/image/icon.png" type="icon"/>
     <script type="text/javascript">
         console.log('真的是不会做了，来人教我啊！');
     </script>
@@ -645,11 +645,10 @@
 
 <!-- 底部 -->
 <footer class="container-fluid text-center">
-    <a href="#page" title="To Top"> <img alt="to top"
-                                         src="common/image/up_arrow.png">
-    </a>
+    <a href="#page" title="To Top"> <img alt="to top" src="common/image/up_arrow.png"></a>
     <p>
-        发现有不足的地方，请联系作者<a target="_blank" href="tencent://message/?uin=673724357&Site=www.cxm520hyq.com.cn&Menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2::52" alt="S I M P L E" title="S I M P L E"/></a>
+        发现有不足的地方，请联系我<a target="_blank" href="tencent://message/?uin=673724357&Site=www.cxm520hyq.com.cn&Menu=yes"><img
+            border="0" src="http://wpa.qq.com/pa?p=2::52" alt="S I M P L E" title="S I M P L E"/></a>
     </p>
 </footer>
 
