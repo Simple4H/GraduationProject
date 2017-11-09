@@ -10,7 +10,7 @@ public class PrintText {
 	public void write(String name, String email, String message) {
 		FileWriter fw = null;
 		try {
-			File f = new File("E:\\GraduationProject.txt");
+			File f = new File("/developer/GraduationProject.txt");
 			fw = new FileWriter(f, true);
 		} catch (IOException e) {
 			e.printStackTrace();
