@@ -32,8 +32,7 @@ public class MessageServlet extends HttpServlet {
 		//打印到后台txt文本文件
 		pt.write(name,email,message);
 		if(email!=null){
-			request.getRequestDispatcher("index.jsp").forward(request, response);
-		   
+			request.getRequestDispatcher("index.html").forward(request, response);
 		}
 	}
 }
