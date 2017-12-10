@@ -5,5 +5,5 @@ package com.simple.common;
  */
 public class Const {
 
-    private final static String CURRENT_USER = "cuurentUser";
+    public final static String CURRENT_USER = "cuurentUser";
 }
