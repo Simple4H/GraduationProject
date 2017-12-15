@@ -52,6 +52,25 @@
         }
     </script>
 
+    <script>
+        function login() {
+            $.ajax({
+                type : "post",
+                url : "http://localhost:8080/user/login.do",
+                contentType : "application/json;charset=utf-8",
+                //数据格式是json串,传进一个person
+                data : '{"username" : "huangbude","password" : "123123123"}',
+
+                success:function(data){
+                    console.log(data.valueOf());
+                    console.log(data.valueOf().status);
+                    console.log(data.valueOf().msg);
+                    console.log(data.valueOf().data);
+                }
+            });
+        }
+    </script>
+
 </head>
 <body id="page" data-spy="scroll" data-target=".navbar" data-offset="60">
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -80,7 +99,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-offset-3 col-md-6">
-                                    <form class="form-horizontal" id="login">
+                                    <form class="form-horizontal" id="login_from">
                                         <span class="heading">用户登录</span>
                                         <div class="form-group">
                                             <input type="text" class="form-control" id="inputUsername"
@@ -99,7 +118,7 @@
                                                 <label for="checkbox1"></label>
                                             </div>
                                             <span class="text">Remember me</span>
-                                            <button type="submit" class="btn btn-default" id="loginBtn">登录</button>
+                                            <button type="submit" class="btn btn-default" onclick="login()">登录</button>
                                             <button type="button" class="btn btn-default" data-dismiss="modal">取消
                                             </button>
                                         </div>

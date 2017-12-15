@@ -151,11 +151,63 @@
             update_time = #{updateTime,jdbcType=TIMESTAMP}
         WHERE id = #{id,jdbcType=INTEGER}
     </update>
-    <select id="userLogin" resultMap="BaseResultMap" parameterType="map">
+    <select id="checkUsername" resultType="java.lang.Integer" parameterType="string">
+        SELECT count(1)
+        FROM simple_user
+        WHERE username = #{username}
+    </select>
+
+    <select id="userLogin" resultType="com.simple.pojo.User" parameterType="map">
         SELECT
         <include refid="Base_Column_List"/>
-        from simple_user
+        FROM simple_user
+        WHERE username=#{username}
+        and password=#{password}
+    </select>
+
+    <select id="checkPassword" parameterType="map" resultType="java.lang.Integer">
+        SELECT count(1)
+        FROM simple_user
+        WHERE password = #{password}
+              AND id = #{userId}
+    </select>
+
+    <select id="checkEmailByUserId" parameterType="map" resultType="java.lang.Integer">
+        SELECT count(1)
+        FROM simple_user
+        WHERE email = #{email}
+              AND id = #{userId}
+    </select>
+
+    <select id="checkQuestionAndAnswer" parameterType="map" resultType="java.lang.Integer">
+        SELECT count(1)
+        FROM simple_user
         WHERE username = #{username}
-        and password = #{password}
+              AND question = #{question}
+              AND answer = #{answer}
+    </select>
+
+    <update id="updatePasswordByUsername" parameterType="map">
+        UPDATE simple_user
+        SET password = #{newPassword}, update_time = now()
+        WHERE username = #{username}
+    </update>
+
+    <select id="checkEmail" parameterType="string" resultType="java.lang.Integer">
+        SELECT count(1)
+        FROM simple_user
+        WHERE email = #{email}
+    </select>
+
+    <select id="checkAdmin" parameterType="string" resultType="java.lang.Integer">
+        SELECT role
+        FROM simple_user
+        WHERE username = #{username}
+    </select>
+
+    <select id="getQuestion" parameterType="string" resultType="java.lang.String">
+        SELECT question
+        FROM simple_user
+        WHERE username = #{username}
     </select>
 </mapper>
