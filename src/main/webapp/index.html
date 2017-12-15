@@ -52,18 +52,6 @@
         }
     </script>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#login').submit(function () {
-                $.ajax({
-                    url: "http://localhost:8080/user/login.do",
-                    data: "{username:123123,password:asdasd}",
-                    type: "post",
-                    dataType: "json"
-                })
-            })
-        })
-    </script>
 </head>
 <body id="page" data-spy="scroll" data-target=".navbar" data-offset="60">
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -143,7 +131,7 @@
 <!-- 头 -->
 <div class="jumbotron text-center">
     <h1>
-        力行中智<img width="75" height="75" alt="" src="common/image/logo.png">
+        力行中智<img width="128" height="128" alt="" src="common/image/logo.png">
     </h1>
     <p>身体力行，用中华智慧为世界提供智能解决方案</p>
     <form class="form-inline">
@@ -170,7 +158,7 @@
             </a>
         </div>
         <div class="col-sm-4">
-			<span><img width="256" height="256" alt=""
+			<span><img width="512" height="512" alt=""
                        src="common/image/aboutus.png"></span>
         </div>
     </div>
@@ -179,7 +167,7 @@
 <div class="container-fluid bg-grey">
     <div class="row">
         <div class="col-sm-5">
-			<span><img width="256" height="256" alt=""
+			<span><img width="512" height="512" alt=""
                        src="common/image/duty.png"></span>
         </div>
         <div class="col-sm-7">
