@@ -74,6 +74,7 @@
                     if (user.valueOf().status === 1){
                         sessionStorage.user = user;
                         window.location.href="index.html";
+                    //    登录后存放session，打开网页验证是否已经登录，没有的话，显示登录，有的话显示用户名字
                     }
                     else {
                         $("#login_message").html(user.valueOf().msg);
