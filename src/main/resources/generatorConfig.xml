@@ -3,9 +3,10 @@
         PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
+<!--suppress ALL -->
 <generatorConfiguration>
     <!--导入属性配置-->
-    <properties resource="datasource.properties"></properties>
+    <properties resource="datasource.properties"/>
 
     <!--指定特定数据库的jdbc驱动jar包的位置 -->
     <classPathEntry location="${db.driverLocation}"/>
