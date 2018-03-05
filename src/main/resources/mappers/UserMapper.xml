@@ -30,13 +30,13 @@
     </delete>
     <insert id="insert" parameterType="com.simple.pojo.User">
         INSERT INTO simple_user (id, username, password,
-                                 email, phone, question,
-                                 answer, role, create_time,
-                                 update_time)
+        email, phone, question,
+        answer, role, create_time,
+        update_time)
         VALUES (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
-                #{email,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{question,jdbcType=VARCHAR},
-                #{answer,jdbcType=VARCHAR}, #{role,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP},
-                #{updateTime,jdbcType=TIMESTAMP})
+        #{email,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{question,jdbcType=VARCHAR},
+        #{answer,jdbcType=VARCHAR}, #{role,jdbcType=INTEGER}, now(),
+        now())
     </insert>
     <insert id="insertSelective" parameterType="com.simple.pojo.User">
         insert into simple_user
@@ -66,10 +66,10 @@
                 role,
             </if>
             <if test="createTime != null">
-                create_time,
+                now(),
             </if>
             <if test="updateTime != null">
-                update_time,
+                now(),
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -98,10 +98,10 @@
                 #{role,jdbcType=INTEGER},
             </if>
             <if test="createTime != null">
-                #{createTime,jdbcType=TIMESTAMP},
+                now(),
             </if>
             <if test="updateTime != null">
-                #{updateTime,jdbcType=TIMESTAMP},
+                now(),
             </if>
         </trim>
     </insert>
@@ -130,31 +130,83 @@
                 role = #{role,jdbcType=INTEGER},
             </if>
             <if test="createTime != null">
-                create_time = #{createTime,jdbcType=TIMESTAMP},
+                now(),
             </if>
             <if test="updateTime != null">
-                update_time = #{updateTime,jdbcType=TIMESTAMP},
+                now(),
             </if>
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
-
     <update id="updateByPrimaryKey" parameterType="com.simple.pojo.User">
         UPDATE simple_user
         SET username    = #{username,jdbcType=VARCHAR},
-            password    = #{password,jdbcType=VARCHAR},
-            email       = #{email,jdbcType=VARCHAR},
-            phone       = #{phone,jdbcType=VARCHAR},
-            question    = #{question,jdbcType=VARCHAR},
-            answer      = #{answer,jdbcType=VARCHAR},
-            role        = #{role,jdbcType=INTEGER},
-            create_time = #{createTime,jdbcType=TIMESTAMP},
-            update_time = #{updateTime,jdbcType=TIMESTAMP}
+        password    = #{password,jdbcType=VARCHAR},
+        email       = #{email,jdbcType=VARCHAR},
+        phone       = #{phone,jdbcType=VARCHAR},
+        question    = #{question,jdbcType=VARCHAR},
+        answer      = #{answer,jdbcType=VARCHAR},
+        role        = #{role,jdbcType=INTEGER},
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+        update_time = #{updateTime,jdbcType=TIMESTAMP}
         WHERE id = #{id,jdbcType=INTEGER}
     </update>
-
-    <select id="checkUsername" resultType="int" parameterType="string">
+    <select id="checkUsername" resultType="java.lang.Integer" parameterType="string">
         SELECT count(1)
+        FROM simple_user
+        WHERE username = #{username}
+    </select>
+
+    <select id="userLogin" resultType="com.simple.pojo.User" parameterType="map">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM simple_user
+        WHERE username=#{username}
+        and password=#{password}
+    </select>
+
+    <select id="checkPassword" parameterType="map" resultType="java.lang.Integer">
+        SELECT count(1)
+        FROM simple_user
+        WHERE password = #{password}
+        AND id = #{userId}
+    </select>
+
+    <select id="checkEmailByUserId" parameterType="map" resultType="java.lang.Integer">
+        SELECT count(1)
+        FROM simple_user
+        WHERE email = #{email}
+        AND id = #{userId}
+    </select>
+
+    <select id="checkQuestionAndAnswer" parameterType="map" resultType="java.lang.Integer">
+        SELECT count(1)
+        FROM simple_user
+        WHERE username = #{username}
+        AND question = #{question}
+        AND answer = #{answer}
+    </select>
+
+    <update id="updatePasswordByUsername" parameterType="map">
+        UPDATE simple_user
+        SET password = #{newPassword}, update_time = now()
+        WHERE username = #{username}
+    </update>
+
+    <select id="checkEmail" parameterType="string" resultType="java.lang.Integer">
+        SELECT count(1)
+        FROM simple_user
+        WHERE email = #{email}
+    </select>
+
+    <select id="checkAdmin" parameterType="string" resultType="java.lang.Integer">
+        SELECT role
+        FROM simple_user
+        WHERE username = #{username}
+    </select>
+
+    <select id="getQuestion" parameterType="string" resultType="java.lang.String">
+        SELECT question
         FROM simple_user
         WHERE username = #{username}
     </select>

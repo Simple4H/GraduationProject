@@ -38,5 +38,16 @@ import com.simple.pojo.User;
  * //                  不见满街漂亮妹，哪个归得程序员？
  */
 public interface IUserService {
+
     ServerResponse<User> login(String username, String password);
+
+    ServerResponse<String> resetPassword(String newPassword, String oldPassword, User user);
+
+    ServerResponse<User> updateInformation(User user);
+
+    ServerResponse<String> checkAnswer(String username, String question, String answer);
+
+    ServerResponse<String> forgetResetPassword(String username, String newPassword, String forgetToken);
+
+    ServerResponse<String> getQuestionInformation(String username);
 }
