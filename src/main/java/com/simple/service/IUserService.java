@@ -1,5 +1,9 @@
 package com.simple.service;
 
+
+import com.simple.common.ServerResponse;
+import com.simple.pojo.User;
+
 /**
  * Create by S I M P L E on 2018/03/05
  * //                            _ooOoo_
@@ -33,5 +37,6 @@ package com.simple.service;
  * //                  别人笑我忒疯癫，我笑自己命太贱；
  * //                  不见满街漂亮妹，哪个归得程序员？
  */
-public class IUserService {
+public interface IUserService {
+    ServerResponse<User> login(String username, String password);
 }
