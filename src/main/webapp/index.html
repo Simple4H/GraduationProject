@@ -117,6 +117,9 @@
                     if (user.valueOf().status === 1){
                         sessionStorage.user = user;
                         alert("提交成功");
+                        name.html("");
+                        email.html("");
+                        comments.html("");
                     }
                     else {
                         $("#login_message").html(user.valueOf().msg);

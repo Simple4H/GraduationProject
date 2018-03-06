@@ -15,19 +15,6 @@ public class FeedBack {
 
     private Date updateTime;
 
-    public FeedBack(Integer id, String name, String email, String comments, Date createTime, Date updateTime) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.comments = comments;
-        this.createTime = createTime;
-        this.updateTime = updateTime;
-    }
-
-    public FeedBack() {
-        super();
-    }
-
     public Integer getId() {
         return id;
     }
