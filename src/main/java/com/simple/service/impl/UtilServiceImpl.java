@@ -2,9 +2,7 @@ package com.simple.service.impl;
 
 import com.simple.common.ServerResponse;
 import com.simple.dao.FeedBackMapper;
-import com.simple.service.IUserService;
 import com.simple.service.IUtilService;
-import com.sun.org.apache.regexp.internal.RE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -44,10 +42,17 @@ import org.springframework.stereotype.Service;
 @Service("iUtilService")
 public class UtilServiceImpl implements IUtilService{
 
+    private final FeedBackMapper feedBackMapper;
+
     @Autowired
-    private FeedBackMapper feedBackMapper;
+    public UtilServiceImpl(FeedBackMapper feedBackMapper) {
+        this.feedBackMapper = feedBackMapper;
+    }
 
     public ServerResponse<String> feedBack(String name,String email,String comments){
+        if (name.isEmpty() || email.isEmpty() || comments.isEmpty()){
+            return ServerResponse.createByErrorMessage("不能为空");
+        }
         int resultCount = feedBackMapper.insertFeedBack(name, email, comments);
         if (resultCount > 0){
             return ServerResponse.createBySuccessMessage("提交成功");

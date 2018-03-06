@@ -113,16 +113,16 @@
                 contentType : 'application/json;charset=utf-8',
                 dataType    : 'json',
                 data        :  data,
-                success: function (user) {
-                    if (user.valueOf().status === 1){
-                        sessionStorage.user = user;
-                        alert("提交成功");
+                success: function (FeebBack) {
+                    if (FeebBack.valueOf().status === 1){
+                        sessionStorage.FeebBack = FeebBack;
+                        alert(FeebBack.msg);
                         name.html("");
                         email.html("");
                         comments.html("");
                     }
                     else {
-                        $("#login_message").html(user.valueOf().msg);
+                        alert(FeebBack.msg);
                     }
                 }
             });
