@@ -60,6 +60,26 @@
 
     <!--登录js-->
     <script>
+        function getUserInfo() {
+            $("#login_username").html("登录");
+            var data = JSON.stringify("");
+            $.ajax({
+                type        : 'post',
+                url         : 'http://localhost:8080/user/get_user_info.do',
+                contentType : 'application/json;charset=utf-8',
+                dataType    : 'json',
+                data        :  data,
+                success:    function(user){
+                    if (user.valueOf().data.username === null){
+                        $("#login_username").html("登录");
+                    }
+                    else {
+                        $("#login_username").html(user.valueOf().data.username);
+                    }
+                }
+            })
+        }
+
         function loginJson() {
             var username = document.getElementById("username").value;
             var password = document.getElementById("password").value;
@@ -74,7 +94,29 @@
                     if (user.valueOf().status === 1){
                         sessionStorage.user = user;
                         window.location.href="index.html";
-                    //    登录后存放session，打开网页验证是否已经登录，没有的话，显示登录，有的话显示用户名字
+                    }
+                    else {
+                        $("#login_message").html(user.valueOf().msg);
+                    }
+                }
+            });
+        }
+
+        function feedback() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var comments = document.getElementById("comments").value;
+            var data = JSON.stringify({"name":name,"email":email,"comments":comments});
+            $.ajax({
+                type        : 'post',
+                url         : 'http://localhost:8080/util/feedback.do',
+                contentType : 'application/json;charset=utf-8',
+                dataType    : 'json',
+                data        :  data,
+                success: function (user) {
+                    if (user.valueOf().status === 1){
+                        sessionStorage.user = user;
+                        alert("提交成功");
                     }
                     else {
                         $("#login_message").html(user.valueOf().msg);
@@ -86,7 +128,7 @@
 
 
 </head>
-<body id="page" data-spy="scroll" data-target=".navbar" data-offset="60">
+<body id="page" data-spy="scroll" data-target=".navbar" data-offset="60" onload="getUserInfo()" >
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -107,8 +149,7 @@
                 <li><a href="#contact">联系我们</a></li>
                 <!--登录-->
                 <li>
-                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">登录
-                    </button>
+                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"><div id="login_username"></div></button>
                     <!-- Modal -->
                     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                         <div class="container">
@@ -461,7 +502,7 @@
                 <span class="glyphicon glyphicon-envelope"></span> 673724357@qq.com
             </p>
         </div>
-        <form action="Message" method="post" onsubmit="return message()">
+        <form>
             <div class="col-sm-7 slideanim">
                 <div class="row">
                     <div class="col-sm-6 form-group">
@@ -479,7 +520,7 @@
                 <div class="row">
                     <div class="col-sm-12 form-group">
                         <button class="btn btn-default pull-right" type="submit"
-                                onclick="disp_confirm()">提交
+                                onclick="feedback()">提交
                         </button>
                     </div>
                 </div>

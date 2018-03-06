@@ -29,3 +29,22 @@ CREATE TABLE `simple_user` (
   ENGINE = InnoDB
   AUTO_INCREMENT = 1
   DEFAULT CHARSET = utf8;
+
+CREATE TABLE `simple_feedback`(
+  `id` int(11) not NULL AUTO_INCREMENT
+  COMMENT '反馈表id',
+  `name` VARCHAR(50) NOT NULL
+  COMMENT '姓名',
+  `email` VARCHAR(15) NOT NULL
+  COMMENT '邮箱',
+  `comments` VARCHAR(1000) NOT NULL
+  COMMENT '问题',
+  `create_time` DATETIME    NOT NULL
+  COMMENT '创建时间',
+  `update_time` DATETIME    NOT NULL
+  COMMENT '最后一次更新时间',
+  PRIMARY KEY (`id`)
+)
+  ENGINE = InnoDB
+  AUTO_INCREMENT = 1
+  DEFAULT CHARSET = utf8;

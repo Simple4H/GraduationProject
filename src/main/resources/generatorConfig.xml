@@ -6,7 +6,7 @@
 <!--suppress ALL -->
 <generatorConfiguration>
     <!--导入属性配置-->
-    <properties resource="/datasource.properties"/>
+    <properties resource="datasource.properties"/>
 
     <!--指定特定数据库的jdbc驱动jar包的位置 -->
     <classPathEntry location="${db.driverLocation}"/>
@@ -71,6 +71,9 @@
 
 
         <table tableName="simple_user" domainObjectName="User" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false"></table>
+        <table tableName="simple_feedback" domainObjectName="FeedBack" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false"></table>
 
