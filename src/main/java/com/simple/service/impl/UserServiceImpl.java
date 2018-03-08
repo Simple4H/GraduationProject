@@ -48,8 +48,12 @@ import java.util.UUID;
 @Service("iUserService")
 public class UserServiceImpl implements IUserService {
 
+    private final UserMapper userMapper;
+
     @Autowired
-    private UserMapper userMapper;
+    public UserServiceImpl(UserMapper userMapper) {
+        this.userMapper = userMapper;
+    }
 
     //登录
     public ServerResponse<User> login(String username, String password) {
